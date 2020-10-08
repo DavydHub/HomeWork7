@@ -80,7 +80,7 @@
 .done_least {
   display: none;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 500px) {
   .form-wrapper {
     width: 98%;
     margin-top: 10px;
