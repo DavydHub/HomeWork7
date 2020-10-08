@@ -3,17 +3,17 @@ const addButton = document.querySelector(".add_item");
 const list = document.querySelector(".least");
 
 addButton.addEventListener("click", () => {
-  const textDate = document.getElementById("inp").value;
+  const textData = document.getElementById("inp").value;
 
-  if (textDate !== "") {
+  if (textData !== "") {
     const ul = document.querySelector(".least");
     ul.insertAdjacentHTML(
       "afterBegin",
       `<li class="list_item">
-    ${textDate} <button class="item_btn">+</button>
+    ${textData} <button class="item_btn">+</button>
      </li>`
     );
-  } else console.log(textDate);
+  } else console.log(textData);
 });
 
 console.log(list);
