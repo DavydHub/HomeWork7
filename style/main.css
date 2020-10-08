@@ -80,3 +80,12 @@
 .done_least {
   display: none;
 }
+@media screen and (max-width: 376px) {
+  .form-wrapper {
+    width: 98%;
+    margin-top: 10px;
+  }
+  .app_wrapper {
+    align-items: flex-start;
+  }
+}
