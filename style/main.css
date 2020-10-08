@@ -1,0 +1,76 @@
+.app_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: bisque;
+  height: 100vh;
+}
+.form-wrapper {
+  background-color: goldenrod;
+  position: relative;
+  width: 50%;
+  border-radius: 10px;
+  padding: 5%;
+}
+.list_item {
+  position: relative;
+}
+.item_btn {
+  position: absolute;
+  right: 0px;
+}
+.to_do_input {
+  width: 80%;
+  height: 25px;
+  margin-top: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  outline: none;
+  padding-left: 10px;
+  color: goldenrod;
+}
+.add_item {
+  margin-left: 10px;
+  border-radius: 5px;
+  height: 25px;
+  outline: none;
+  width: 15%;
+  position: absolute;
+  right: 0px;
+  top: 20px;
+  background-color: bisque;
+  color: goldenrod;
+}
+.content-wrrapper {
+  position: relative;
+}
+.text-date {
+  color: bisque;
+}
+.add_item:hover {
+  background-color: white;
+  color: goldenrod;
+}
+.add_item:active {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+.list_item {
+  color: bisque;
+  margin-bottom: 20px;
+}
+.to_do_input::placeholder {
+  color: goldenrod;
+  font-size: 0.8rem;
+}
+.item_btn {
+  border-radius: 50%;
+  outline: none;
+  color: goldenrod;
+}
+.item_btn:hover {
+  background-color: white;
+  color: goldenrod;
+}
+.list_item:hover {
+  color: white;
+}

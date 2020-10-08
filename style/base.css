@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--regular-font-size);
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  color: var(--main-text-color);
+}
+
+body,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+input,
+button {
+  border: none;
+}
+
+body {
+  background: #ffffff;
+}
