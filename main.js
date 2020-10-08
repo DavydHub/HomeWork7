@@ -1,5 +1,6 @@
 const addButton = document.querySelector(".add_item");
-const doneButton = document.querySelector(".item_btn");
+
+const list = document.querySelector(".least");
 
 addButton.addEventListener("click", () => {
   const textDate = document.getElementById("inp").value;
@@ -13,7 +14,12 @@ addButton.addEventListener("click", () => {
   console.log(textDate);
 });
 
-doneButton.addEventListener("click", () => {
-  const doneElement = document.querySelector(".list_item");
-  doneElement.remove(doneElement);
+console.log(list);
+list.addEventListener("click", function (e) {
+  // event object
+  console.log("ITEM", e.target.classList.contains("item_btn"));
+  if (e.target.classList.contains("item_btn")) {
+    console.log(e.target.parentElement);
+    e.target.parentElement.classList.toggle("done_least");
+  }
 });
