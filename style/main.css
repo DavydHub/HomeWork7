@@ -103,4 +103,34 @@
   .app_wrapper {
     align-items: flex-start;
   }
+  .to_do_input {
+    height: 50px;
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+  }
+  .add_item {
+    height: 50px;
+  }
+  .list_item {
+    font-size: 1.5rem;
+  }
+  .item_btn {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    top: -23px;
+  }
+  .del_btn {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    right: 60px;
+    top: -23px;
+  }
+  .list_item {
+    margin-top: 50px;
+  }
+  .text-date {
+    font-size: 2rem;
+  }
 }
