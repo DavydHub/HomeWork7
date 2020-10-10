@@ -1,16 +1,18 @@
 const addButton = document.querySelector(".add_item");
 
-const list = document.querySelector(".least");
+const list = document.querySelector(".list");
 
 addButton.addEventListener("click", () => {
   const textData = document.getElementById("inp").value;
 
   if (textData !== "") {
-    const ul = document.querySelector(".least");
+    const ul = document.querySelector(".list");
     ul.insertAdjacentHTML(
       "afterBegin",
       `<li class="list_item">
-    ${textData} <button class="item_btn">+</button>
+    ${textData} 
+    <button class="del_btn">del</button>
+    <button class="item_btn">+</button>
      </li>`
     );
   } else console.log(textData);
@@ -22,6 +24,11 @@ list.addEventListener("click", function (e) {
   console.log("ITEM", e.target.classList.contains("item_btn"));
   if (e.target.classList.contains("item_btn")) {
     console.log(e.target.parentElement);
-    e.target.parentElement.classList.toggle("done_least");
+    e.target.parentElement.classList.toggle("done_list");
+  } 
+  if (e.target.classList.contains("del_btn")) {
+    console.log(e.target.parentElement);
+    e.target.parentElement.remove();
   }
+
 });

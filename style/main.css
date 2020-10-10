@@ -1,11 +1,12 @@
 .app_wrapper {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   background-color: bisque;
   height: 100vh;
 }
 .form-wrapper {
+  margin-top: 100px;
   background-color: goldenrod;
   position: relative;
   width: 50%;
@@ -67,6 +68,17 @@
   outline: none;
   color: goldenrod;
 }
+.del_btn {
+  outline: none;
+  color: goldenrod;
+  position: absolute;
+  right: 25px;
+  border-radius: 50%;
+}
+.del_btn:hover {
+  background-color: white;
+  color: goldenrod;
+}
 .item_btn:hover {
   background-color: white;
   color: goldenrod;
@@ -77,8 +89,11 @@
 .item_btn:active {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
-.done_least {
-  display: none;
+.del_btn:active {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+.done_list {
+  text-decoration: line-through black;
 }
 @media screen and (max-width: 710px) {
   .form-wrapper {
