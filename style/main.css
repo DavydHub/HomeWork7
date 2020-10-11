@@ -120,13 +120,13 @@
   }
   .item_btn {
     height: 50px;
-    width: 10%;
+    width: 50px;
     border-radius: 50%;
     right: -25%;
   }
   .del_btn {
     height: 50px;
-    width: 10%;
+    width: 50px;
     border-radius: 50%;
     right: -12%;
   }
@@ -135,5 +135,16 @@
   }
   .text-date {
     font-size: 2rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .list {
+    width: 75%;
+  }
+  .item_btn {
+    right: -38%;
+  }
+  .del_btn {
+    right: -17%;
   }
 }
