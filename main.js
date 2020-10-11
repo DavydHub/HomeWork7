@@ -3,7 +3,8 @@ const addButton = document.querySelector(".add_item");
 const list = document.querySelector(".list");
 
 addButton.addEventListener("click", () => {
-  const textData = document.getElementById("inp").value;
+  let inp = document.getElementById("inp")
+  let textData = document.getElementById("inp").value;
 
   if (textData !== "") {
     const ul = document.querySelector(".list");
@@ -15,10 +16,12 @@ addButton.addEventListener("click", () => {
     <button class="item_btn">+</button>
      </li>`
     );
-  } else console.log(textData);
+  } 
+
+ inp.value = "";
+  
 });
 
-console.log(list);
 list.addEventListener("click", function (e) {
   // event object
   console.log("ITEM", e.target.classList.contains("item_btn"));
