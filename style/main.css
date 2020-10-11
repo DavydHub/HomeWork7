@@ -18,7 +18,7 @@
 }
 .item_btn {
   position: absolute;
-  right: 0px;
+  right: -60px;
 }
 .to_do_input {
   width: 80%;
@@ -58,6 +58,7 @@
 .list_item {
   color: bisque;
   margin-bottom: 20px;
+  word-wrap: break-word;
 }
 .to_do_input::placeholder {
   color: goldenrod;
@@ -72,7 +73,7 @@
   outline: none;
   color: goldenrod;
   position: absolute;
-  right: 25px;
+  right: -30px;
   border-radius: 50%;
 }
 .del_btn:hover {
@@ -91,6 +92,9 @@
 }
 .del_btn:active {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+.list {
+  max-width: 80%;
 }
 .done_list {
   text-decoration: line-through black;
@@ -116,16 +120,15 @@
   }
   .item_btn {
     height: 50px;
-    width: 50px;
+    width: 10%;
     border-radius: 50%;
-    top: -23px;
+    right: -25%;
   }
   .del_btn {
     height: 50px;
-    width: 50px;
+    width: 10%;
     border-radius: 50%;
-    right: 60px;
-    top: -23px;
+    right: -12%;
   }
   .list_item {
     margin-top: 50px;
