@@ -66,13 +66,13 @@
   outline: none;
   color: goldenrod;
   position: absolute;
-  right: -60px;
+  right: -26%;
 }
 .del_btn {
   outline: none;
   color: goldenrod;
   position: absolute;
-  right: -30px;
+  right: -16%;
   border-radius: 50%;
 }
 .del_btn:hover {

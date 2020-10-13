@@ -1,4 +1,18 @@
 const addButton = document.querySelector(".add_item");
+let todayDate =  document.querySelector('.text-date');
+
+const dateOptions = {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  weekday: 'long',
+};
+
+todayDate.textContent =  new Date().toLocaleString('en-US', dateOptions)
+
+
+
+
 
 const list = document.querySelector(".list");
 
