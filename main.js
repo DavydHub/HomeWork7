@@ -12,8 +12,6 @@ todayDate.textContent =  new Date().toLocaleString('en-US', dateOptions)
 
 
 
-
-
 const list = document.querySelector(".list");
 
 addButton.addEventListener("click", () => {
@@ -35,6 +33,8 @@ addButton.addEventListener("click", () => {
  inp.value = "";
   
 });
+
+////////fvfvfvfv
 
 list.addEventListener("click", function (e) {
   // event object
