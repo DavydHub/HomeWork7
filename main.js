@@ -34,7 +34,6 @@ addButton.addEventListener("click", () => {
   
 });
 
-////////fvfvfvfv
 
 list.addEventListener("click", function (e) {
   // event object
@@ -42,6 +41,24 @@ list.addEventListener("click", function (e) {
   if (e.target.classList.contains("item_btn")) {
     console.log(e.target.parentElement);
     e.target.parentElement.classList.toggle("done_list");
+
+
+    //=====================================================
+
+    const lastElem = this.lastChild; // последний элемент списка
+    const newLastElement = document.createElement('li');
+    this.append(newLastElement);
+    newLastElement.textContent = lastElem.textContent;
+    newLastElement.classList.add('list_item');
+
+
+
+    const targ = e.target.parentElement; //активный элемент
+
+    this.replaceChild(targ, this.lastChild); // происходит замена с удалением послднего
+
+
+    // ====================================================
   } 
   if (e.target.classList.contains("del_btn")) {
     console.log(e.target.parentElement);
