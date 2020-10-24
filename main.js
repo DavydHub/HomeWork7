@@ -44,13 +44,12 @@ list.addEventListener("click", function (e) {
 
 
     //=====================================================
+    /* Так как метод  replaceChild удаляет последний элемент
+    и что бы не удалять нужный последний элемент создаю в конец списка элемент
+    который потом удалит replaceChild*/
 
-    const lastElem = this.lastChild; // последний элемент списка
     const newLastElement = document.createElement('li');
     this.append(newLastElement);
-    newLastElement.textContent = lastElem.textContent;
-    newLastElement.classList.add('list_item');
-
 
 
     const targ = e.target.parentElement; //активный элемент
