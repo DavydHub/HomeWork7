@@ -27,6 +27,29 @@
   padding-left: 10px;
   color: goldenrod;
 }
+.note_inp {
+  width: 100%;
+  height: 25px;
+  margin-top: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  outline: none;
+  padding-left: 10px;
+  color: goldenrod;
+
+}
+.slide_obj{
+ position: absolute;
+ top: -27px;
+ visibility: hidden;
+}
+.slide_obj.togg {
+  top: 0px;
+  visibility: initial;
+  transition: top 0.2s ease-out;
+  
+}
+
 .add_item {
   margin-left: 10px;
   border-radius: 5px;
@@ -75,6 +98,14 @@
   right: -16%;
   border-radius: 50%;
 }
+.down_btn {  
+  outline: none;
+  color: goldenrod;
+  position: absolute;
+  right: -5px;
+  border-radius: 50%;
+
+}
 .del_btn:hover {
   background-color: white;
   color: goldenrod;
@@ -103,6 +134,12 @@
     width: 98%;
     margin-top: 10px;
   }
+  .down_btn {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    right: 10px;
+  } 
   .app_wrapper {
     align-items: flex-start;
   }
@@ -146,6 +183,14 @@
   .del_btn {
     right: -17%;
   }
+  .slide_obj.togg {
+    top: 10px;
+  }
+  .note_inp {
+    width: 80%;
+  }
+
+
 }
 @media screen and (max-width: 321px) {
   .list {

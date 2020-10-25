@@ -23,9 +23,13 @@ addButton.addEventListener("click", () => {
     ul.insertAdjacentHTML(
       "afterBegin",
       `<li class="list_item">
-    ${textData} 
+    ${textData}
+    <button class="down_btn">▼</button> 
     <button class="del_btn">del</button>
     <button class="item_btn">+</button>
+    <div class="slide_obj">
+    <input type="text" class="note_inp" placeholder="Notes">
+    </div>
      </li>`
     );
   } 
@@ -44,7 +48,7 @@ list.addEventListener("click", function (e) {
 
 
     //=====================================================
-    /* Так как метод  replaceChild удаляет последний элемент
+    /* Так как метод  replaceChild() удаляет последний элемент
     и что бы не удалять нужный последний элемент создаю в конец списка элемент
     который потом удалит replaceChild*/
 
@@ -63,5 +67,13 @@ list.addEventListener("click", function (e) {
     console.log(e.target.parentElement);
     e.target.parentElement.remove();
   }
+  if (e.target.classList.contains("down_btn")) {
+    console.log(e.target.parentElement.lastChild.previousElementSibling);
+
+    e.target.parentElement.lastChild.previousElementSibling.classList.toggle('togg');
+    e.target.parentElement.style.height = `${30}px`;
+    
+  }
+  
 
 });
