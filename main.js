@@ -1,5 +1,8 @@
 const addButton = document.querySelector(".add_item");
 let todayDate =  document.querySelector('.text-date');
+const ul = document.querySelector(".list");
+let textData = document.getElementById("inp");
+
 
 const dateOptions = {
   day: 'numeric',
@@ -12,38 +15,57 @@ todayDate.textContent =  new Date().toLocaleString('en-US', dateOptions)
 
 
 
+const data = JSON.parse(localStorage.getItem('mynotes')) || [];
+
+
+
+
+
+
+//Функция которая создает обьекты
+const liMaker = (text) => {
+const li = document.createElement('li');
+li.textContent = text.title;
+ul.prepend(li);
+li.classList.add('list_item');
+li.setAttribute('data-time', text.timeCreate);
+//создание кнопки "+"
+const plusButton = document.createElement('button');
+plusButton.classList.add('item_btn');
+plusButton.textContent = '+'
+li.append(plusButton);
+//создание кнопки "del"
+const delButton = document.createElement('button');
+delButton.classList.add('del_btn');
+delButton.textContent = 'del';
+li.append(delButton);
+
+}
+
 const list = document.querySelector(".list");
 
-addButton.addEventListener("click", () => {
-  let inp = document.getElementById("inp")
-  let textData = document.getElementById("inp").value;
-
-  if (textData !== "") {
-    const ul = document.querySelector(".list");
-    ul.insertAdjacentHTML(
-      "afterBegin",
-      `<li class="list_item">
-    ${textData}
-    <button class="down_btn">▼</button> 
-    <button class="del_btn">del</button>
-    <button class="item_btn">+</button>
-    <div class="slide_obj">
-    <input type="text" class="note_inp" placeholder="Notes">
-    </div>
-     </li>`
-    );
-  } 
-
- inp.value = "";
-  
+addButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  let params = {
+    title: textData.value, 
+    timeCreate: Date.now()
+  }
+  data.push(params)
+  liMaker(params);
+  localStorage.setItem('mynotes', JSON.stringify(data));
+  textData.value = "";
 });
+
+data.forEach(item => {
+  liMaker(item);
+});
+console.log(data);
 
 
 list.addEventListener("click", function (e) {
   // event object
   console.log("ITEM", e.target.classList.contains("item_btn"));
   if (e.target.classList.contains("item_btn")) {
-    console.log(e.target.parentElement);
     e.target.parentElement.classList.toggle("done_list");
 
 
@@ -64,16 +86,35 @@ list.addEventListener("click", function (e) {
     // ====================================================
   } 
   if (e.target.classList.contains("del_btn")) {
-    console.log(e.target.parentElement);
-    e.target.parentElement.remove();
+
+
+    
+    let timeAdd = e.target.parentElement.getAttribute('data-time');
+
+    /* let delElement = data.find(item => item.timeCreate == timeAdd); */
+    let delIndexElement = data.indexOf(timeAdd, 0);
+
+    console.log("atribute", timeAdd);
+    console.log("find", delIndexElement);
+    
+
+
+    
+
+
+
+
+
+  
+   /*  e.target.parentElement.remove(); */
   }
-  if (e.target.classList.contains("down_btn")) {
+/*   if (e.target.classList.contains("down_btn")) {
     console.log(e.target.parentElement.lastChild.previousElementSibling);
 
     e.target.parentElement.lastChild.previousElementSibling.classList.toggle('togg');
     e.target.parentElement.style.height = `${30}px`;
     
-  }
+  } */
   
 
 });
