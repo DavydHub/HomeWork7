@@ -20,8 +20,6 @@ const data = JSON.parse(localStorage.getItem('mynotes')) || [];
 
 
 
-
-
 //Функция которая создает обьекты
 const liMaker = (text) => {
 const li = document.createElement('li');
@@ -45,7 +43,7 @@ li.append(delButton);
 const list = document.querySelector(".list");
 
 addButton.addEventListener("click", (e) => {
-  e.preventDefault();
+
   let params = {
     title: textData.value, 
     timeCreate: Date.now()
@@ -87,26 +85,23 @@ list.addEventListener("click", function (e) {
   } 
   if (e.target.classList.contains("del_btn")) {
 
+    const timeAdd = e.target.parentElement.getAttribute('data-time'); 
 
-    
-    let timeAdd = e.target.parentElement.getAttribute('data-time');
+    const arrayindex = data.findIndex((item) => {
+      console.log(item);
+      return item.timeCreate === parseInt(timeAdd)
+    })
 
-    /* let delElement = data.find(item => item.timeCreate == timeAdd); */
-    let delIndexElement = data.indexOf(timeAdd, 0);
+    data.splice(arrayindex, 1);
+    localStorage.setItem('mynotes', JSON.stringify(data));
+
+    e.target.parentElement.remove();
+
 
     console.log("atribute", timeAdd);
-    console.log("find", delIndexElement);
+    console.log(data);
+    console.log(arrayindex);
     
-
-
-    
-
-
-
-
-
-  
-   /*  e.target.parentElement.remove(); */
   }
 /*   if (e.target.classList.contains("down_btn")) {
     console.log(e.target.parentElement.lastChild.previousElementSibling);
