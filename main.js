@@ -3,6 +3,7 @@ let todayDate =  document.querySelector('.text-date');
 const ul = document.querySelector(".list");
 let textData = document.getElementById("inp");
 
+
 const dateOptions = {
   day: 'numeric',
   month: 'long',
@@ -16,21 +17,34 @@ const data = JSON.parse(localStorage.getItem('mynotes')) || []; // Основн�
 
 const list = document.querySelector(".list");
 
-addButton.addEventListener("click", (e) => {
-
+// ФУНКЦИЯ ДОБАВЛЕНИЯ НОВОГО ЭЛЕМЕНТА
+function addButtonFunction () {
   let params = {
     title: textData.value, 
-    timeCreate: Date.now()
+    timeCreate: Date.now(),
+    crossedLine: false
   }
   data.push(params)
   liMaker(params);
   localStorage.setItem('mynotes', JSON.stringify(data));
   textData.value = "";
+}
+//КЛИК НА КНОПКУ
+addButton.addEventListener("click", () => {
+  addButtonFunction ();
+});
+// НАЖАТИЕ НА ENTER
+textData.addEventListener("keypress", (e) => {
+  if (e.key === 'Enter') {
+  addButtonFunction();
+  }
 });
 
 data.forEach(item => {
   liMaker(item);
+  
 });
+
 
 list.addEventListener("click", function (e) {
   // event object
@@ -55,13 +69,24 @@ list.addEventListener("click", function (e) {
 
     const timeAdd = e.target.parentElement.getAttribute('data-time'); 
     //находим индекс элемента
-    const arrayindex = data.findIndex((item) => {
-      console.log(item);
+    const arrayIndexChange = data.findIndex((item) => {
       return item.timeCreate === parseInt(timeAdd)
     })
-    // деструктуризирующее присваивание (меняет местами элементы массива)
-    [data[arrayindex], data[0]] = [data[0], data[arrayindex]];
-    // записываю изменения в localStorage
+    // меняю элементы массива местами.
+    
+      let changedElem = data[arrayIndexChange];
+      data.splice(arrayIndexChange, 1);
+      data.unshift(changedElem);
+
+      // записываю изменения в localSt
+      localStorage.setItem('mynotes', JSON.stringify(data));
+
+    //===============================================================================//
+
+    data[0].crossedLine = !data[0].crossedLine; // переключает значение true/false последнего элемента
+
+
+    // записываю изменения в localSt
     localStorage.setItem('mynotes', JSON.stringify(data));
 
   } 
@@ -70,7 +95,6 @@ list.addEventListener("click", function (e) {
     const timeAdd = e.target.parentElement.getAttribute('data-time'); 
 
     const arrayindex = data.findIndex((item) => {
-      console.log(item);
       return item.timeCreate === parseInt(timeAdd)
     })
 

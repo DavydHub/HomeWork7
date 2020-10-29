@@ -14,5 +14,11 @@ const liMaker = (text) => {
     const delButton = document.createElement('button');
     delButton.classList.add('del_btn');
     delButton.textContent = 'del';
-    li.append(delButton); 
+    li.append(delButton);
+
+    //сохранение в состояния crossed
+    if (text.crossedLine === true) {
+        li.classList.add('done_list');
+    }
+
     }
